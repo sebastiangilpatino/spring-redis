@@ -10,6 +10,6 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 public class RedisConfiguration {
     @Bean
     public RedisConnectionFactory lettuceConnectionFactory() {
-        return new LettuceConnectionFactory(new RedisStandaloneConfiguration("172.17.0.1", 6379));
+        return new LettuceConnectionFactory(new RedisStandaloneConfiguration("localhost", 7001));
     }
 }
