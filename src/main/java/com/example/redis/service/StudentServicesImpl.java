@@ -1,6 +1,6 @@
 package com.example.redis.service;
 
-import com.example.redis.Exception.StudentNotFoundException;
+import com.example.redis.exception.StudentNotFoundException;
 import com.example.redis.model.Student;
 import com.example.redis.model.StudentDTO;
 import com.example.redis.repository.StudentRepository;
@@ -19,7 +19,7 @@ public class StudentServicesImpl implements StudentServices {
     }
 
     public StudentDTO getStudentById(String id) {
-        var student = studentRepository.getStudentsByStudentId(id)
+        var student = studentRepository.findById(id)
                 .orElseThrow(() -> new StudentNotFoundException("Student not found in redis"));
         return new StudentDTO(student.getLastName(), student.getFirstName());
     }
@@ -27,7 +27,7 @@ public class StudentServicesImpl implements StudentServices {
     @Override
     public Student saveStudent(String firstName, String lastName) {
         var newStudent = Student.builder()
-                .studentId(String.valueOf(UUID.randomUUID()))
+                .id(String.valueOf(UUID.randomUUID()))
                 .firstName(firstName)
                 .lastName(lastName)
                 .build();

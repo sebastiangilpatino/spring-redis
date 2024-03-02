@@ -24,7 +24,7 @@ public class ControllerImpl {
 
     @PostMapping("/student")
     public ResponseEntity<String> saveStudent(@RequestBody StudentDTO studentDTO) {
-        var id = studentServices.saveStudent(studentDTO.firstName(), studentDTO.lastName()).getStudentId();
+        var id = studentServices.saveStudent(studentDTO.firstName(), studentDTO.lastName()).getId();
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 }

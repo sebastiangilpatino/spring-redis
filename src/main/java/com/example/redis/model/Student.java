@@ -14,5 +14,5 @@ public class Student {
     private String lastName;
     private String firstName;
     @Id
-    private String studentId;
+    private String id;
 }
