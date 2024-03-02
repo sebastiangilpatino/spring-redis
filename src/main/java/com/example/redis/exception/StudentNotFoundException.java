@@ -1,4 +1,4 @@
-package com.example.redis.Exception;
+package com.example.redis.exception;
 
 public class StudentNotFoundException extends RuntimeException{
 
